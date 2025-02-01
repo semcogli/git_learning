@@ -1,0 +1,741 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tree Structure</title>
+        <style>
+            ul {
+                list-style-type: none;
+                padding-left: 20px;
+                position: relative;
+            }
+            li {
+                position: relative;
+                padding: 5px 0;
+            }
+            .collapsible {
+                cursor: pointer;
+                padding: 5px;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 18px;  /* Larger font size */
+                font-weight: bold; /* Bold font */
+                background-color: #f1f1f1;
+                border-radius: 4px;
+                margin: 2px 0;
+                width: 100%;
+            }
+            .content {
+                display: none;
+                overflow: hidden;
+                padding-left: 20px; /* Indent child nodes */
+            }
+            table {
+                width: auto;  /* Fit content */
+                border-collapse: collapse;
+                margin-top: 10px;
+                max-width: 100%;  /* Ensure it doesn't exceed the viewport */
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 4px 8px;  /* Add padding for better spacing */
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            /* Style for the Unique Values column */
+            td.unique-values {
+                max-width: 40ch;  /* Limit to 40 characters */
+                overflow: hidden;
+                /* Remove nowrap to allow wrapping */
+                text-overflow: ellipsis;  /* Optional: Show ellipsis for overflow */
+                word-wrap: break-word;  /* Enable word wrapping */
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Tree Structure</h2>
+        <div id="tree">
+    <ul>
+<li><button class='collapsible'>annual_employment_control_totals</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>large_area_id</td><td>int16</td><td>(3, 161)</td><td class='unique-values'>[3, 5, 93, 99, 115, 125, 147, 161]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>total_number_of_jobs</td><td>int32</td><td>(1, 148259)</td><td class='unique-values'># of unique values: 6055</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>annual_household_control_totals</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>large_area_id</td><td>int16</td><td>(3, 161)</td><td class='unique-values'>[3, 5, 93, 99, 115, 125, 147, 161]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>race_id</td><td>int8</td><td>(1, 4)</td><td class='unique-values'>[1, 2, 3, 4]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_of_head_min</td><td>int8</td><td>(5, 65)</td><td class='unique-values'>[18, 25, 35, 65, 5]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_of_head_max</td><td>int8</td><td>(-1, 64)</td><td class='unique-values'>[24, 34, 64, -1, 17]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>persons_min</td><td>int8</td><td>(1, 10)</td><td class='unique-values'>[1, 2, 3, 4, 5, 6, 10, 7, 8, 9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>persons_max</td><td>int8</td><td>(-1, 9)</td><td class='unique-values'>[1, 2, 3, 4, 5, 6, -1, 7, 8, 9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>children_min</td><td>int8</td><td>(0, 3)</td><td class='unique-values'>[0, 1, 2, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>children_max</td><td>int8</td><td>(-1, 2)</td><td class='unique-values'>[0, 1, 2, -1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>cars_min</td><td>int8</td><td>(0, 3)</td><td class='unique-values'>[0, 1, 2, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>cars_max</td><td>int8</td><td>(-1, 2)</td><td class='unique-values'>[0, 1, 2, -1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>workers_min</td><td>int8</td><td>(0, 3)</td><td class='unique-values'>[0, 1, 2, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>workers_max</td><td>int8</td><td>(-1, 2)</td><td class='unique-values'>[0, 1, 2, -1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income_min</td><td>int32</td><td>(0, 113184)</td><td class='unique-values'>[0, 31706, 64018, 113184]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income_max</td><td>int32</td><td>(31705, 1534132)</td><td class='unique-values'>[31705, 64017, 113183, 1534132]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>total_number_of_households</td><td>int32</td><td>(0, 18964)</td><td class='unique-values'># of unique values: 4872</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>annual_relocation_rates_for_households</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>age_min</td><td>int16</td><td>(0, 75)</td><td class='unique-values'>[0, 25, 35, 45, 55, 65, 75]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_max</td><td>int16</td><td>(-1, 74)</td><td class='unique-values'>[24, 34, 44, 54, 64, 74, -1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income_min</td><td>int32</td><td>(0, 150000)</td><td class='unique-values'>[0, 10000, 20000, 30000, 40000, 55000, 75000, 100000, 150000]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income_max</td><td>int32</td><td>(-1, 149000)</td><td class='unique-values'>[9999, 19999, 29999, 39999, 54999, 74999, 99999, 149000, -1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>probability_of_relocating</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 63</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>annual_relocation_rates_for_jobs</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>job_relocation_probability</td><td>float64</td><td>(0, 0)</td><td class='unique-values'>[0.0, 0.0089220399999999, 0.0156308, 0.0107547599999999, 0.00824208, 0.01255188, 0.01732856, 0.01967136, 0.0104236, 0.0135347, 0.01318776]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>building_sqft_per_job</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_sqft_per_job</td><td>int16</td><td>(185, 20000)</td><td class='unique-values'>[1225, 1750, 550, 500, 300, 700, 775, 1700, 1075, 525, 310, 275, 575, 900, 1150, 185, 1000, 950, 20000]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>building_types</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_type_name</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 26</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_type_description</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 26</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>naics</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>is_residential</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>unit_name</td><td>object</td><td>None</td><td class='unique-values'>['building_sqft']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>generic_building_type_description</td><td>object</td><td>None</td><td class='unique-values'>['Institutional', 'retail', 'office', 'industrial', 'transportation', 'medical', 'entertainment', 'agricultural', 'residential', 'othercommercial']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>generic_building_type_id</td><td>int8</td><td>(1, 10)</td><td class='unique-values'>[4, 3, 7, 2, 5, 6, 9, 1, 10]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>generic_building_type_name</td><td>object</td><td>None</td><td class='unique-values'>['institutional', 'office & retail', 'industrial', 'tcu', 'medical', 'leisure & hospitality', 'agricultural', 'single-family residential', 'multi-family residential', 'manufactured housing park']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>buildings</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>parcel_id</td><td>int32</td><td>(1000001, 8388547)</td><td class='unique-values'># of unique values: 1673360</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>non_residential_sqft</td><td>int64</td><td>(0, 5400000)</td><td class='unique-values'># of unique values: 19764</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>year_built</td><td>int16</td><td>(1760, 2788)</td><td class='unique-values'># of unique values: 223</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>residential_units</td><td>int16</td><td>(0, 480)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_type_id</td><td>int8</td><td>(11, 95)</td><td class='unique-values'># of unique values: 26</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sqft_per_unit</td><td>int16</td><td>(0, 32767)</td><td class='unique-values'># of unique values: 7636</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>stories</td><td>float64</td><td>(1, 73)</td><td class='unique-values'># of unique values: 45</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>improvement_value</td><td>float64</td><td>(0, 770963797)</td><td class='unique-values'># of unique values: 1540484</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>land_area</td><td>int32</td><td>(13, 4012700)</td><td class='unique-values'># of unique values: 20632</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>market_value</td><td>float64</td><td>(0, 772395716)</td><td class='unique-values'># of unique values: 1331054</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>counties</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>county_name</td><td>object</td><td>None</td><td class='unique-values'>['Livingston County', 'Macomb County', 'Monroe County', 'Oakland County', 'St. Clair County', 'Washtenaw County', 'Wayne County']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>crime_rates</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>ucr_crime_rate</td><td>float64</td><td>(0, 6211)</td><td class='unique-values'># of unique values: 215</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>other_crime_rate</td><td>float64</td><td>(0, 133333)</td><td class='unique-values'># of unique values: 271</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>demolition_rates</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>typenonsqft</td><td>int32</td><td>(0, 972799)</td><td class='unique-values'># of unique values: 238</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type81units</td><td>int8</td><td>(0, 120)</td><td class='unique-values'># of unique values: 58</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type82units</td><td>int32</td><td>(0, 151)</td><td class='unique-values'>[0, 3, 2, 5, 4, 6, 7, 16, 8, 12, 10, 151]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type83units</td><td>int32</td><td>(0, 165)</td><td class='unique-values'># of unique values: 39</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>employed_workers_rate</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>Age Group</td><td>object</td><td>None</td><td class='unique-values'>['Ages 16-19', 'Ages 20-21', 'Ages 22-24', 'Ages 25-29', 'Ages 30-34', 'Ages 35-44', 'Ages 45-54', 'Ages 55-59', 'Ages 60-61', 'Ages 62-64', 'Ages 65-69', 'Ages 70-74', 'Ages 75+']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_min</td><td>float64</td><td>(16, 75)</td><td class='unique-values'>[16.0, 20.0, 22.0, 25.0, 30.0, 35.0, 45.0, 55.0, 60.0, 62.0, 65.0, 70.0, 75.0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_max</td><td>float64</td><td>(19, 74)</td><td class='unique-values'>[19.0, 21.0, 24.0, 29.0, 34.0, 44.0, 54.0, 59.0, 61.0, 64.0, 69.0, 74.0, nan]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2010</td><td>int64</td><td>(499, 144026)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2015</td><td>int64</td><td>(607, 143055)</td><td class='unique-values'># of unique values: 103</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2018</td><td>int64</td><td>(796, 143534)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2019</td><td>int64</td><td>(804, 141584)</td><td class='unique-values'># of unique values: 103</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2020</td><td>int64</td><td>(813, 136447)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2021</td><td>int64</td><td>(853, 132848)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2022</td><td>int64</td><td>(950, 133362)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2023</td><td>int64</td><td>(1029, 135371)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2024</td><td>int64</td><td>(1121, 137754)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2025</td><td>int64</td><td>(1220, 140460)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2026</td><td>int64</td><td>(1330, 143630)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2027</td><td>int64</td><td>(1416, 146072)</td><td class='unique-values'># of unique values: 103</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2028</td><td>int64</td><td>(1517, 148526)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2029</td><td>int64</td><td>(1596, 150951)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2030</td><td>int64</td><td>(1582, 152932)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2031</td><td>int64</td><td>(1575, 154025)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2032</td><td>int64</td><td>(1558, 154670)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2033</td><td>int64</td><td>(1491, 154769)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2034</td><td>int64</td><td>(1475, 153780)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2035</td><td>int64</td><td>(1485, 151293)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2036</td><td>int64</td><td>(1486, 150395)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2037</td><td>int64</td><td>(1483, 150522)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2038</td><td>int64</td><td>(1371, 150784)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2039</td><td>int64</td><td>(1287, 152665)</td><td class='unique-values'># of unique values: 103</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2040</td><td>int64</td><td>(1254, 154399)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2041</td><td>int64</td><td>(1190, 155170)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2042</td><td>int64</td><td>(1142, 155379)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2043</td><td>int64</td><td>(1202, 155802)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2044</td><td>int64</td><td>(1301, 157757)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2045</td><td>int64</td><td>(1361, 159841)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2046</td><td>int64</td><td>(1380, 159769)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2047</td><td>int64</td><td>(1396, 158766)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2048</td><td>int64</td><td>(1410, 157671)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2049</td><td>int64</td><td>(1421, 156473)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2050</td><td>int64</td><td>(1428, 155568)</td><td class='unique-values'># of unique values: 104</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>employment_sectors</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>sector_name</td><td>object</td><td>None</td><td class='unique-values'>['Natural Resources & Mining', 'Construction', 'Manufacturing', 'Wholesale Trade', 'Retail Trade', 'Transportation & Warehousing', 'Utilities', 'Information', 'Financial Activities', 'Professional, Scientific, & Technical Services', 'Management of Companies & Enterprises', 'Administrative, Support, & Waste Services', 'Education Services', 'Medical Facilities', 'Hospitals', 'Leisure & Hospitality', 'Other Services', 'Public Administration']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sqft_per_job</td><td>int16</td><td>(225, 1000)</td><td class='unique-values'>[700, 550, 400, 1000, 300, 225, 750, 600]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>naics_code</td><td>object</td><td>None</td><td class='unique-values'>['21-Nov', '23', '31-33', '42', '44-45', '48-49', '22', '51', '52-53', '54', '55', '56', '61', '621, 623, 624', '622', '71-72', '81', '92']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>naics sector description</td><td>object</td><td>None</td><td class='unique-values'>['Agriculture, Forestry, Fishing, and Hunting; Mining Quarrying, and Oil and Gas Extraction', 'Construction', 'Manufacturing', 'Wholesale Trade', 'Retail Trade', 'Transportation and Warehousing', 'Utilities', 'Information', 'Finance and Insurance; Real Estate and Rental and Leasing', 'Professional, Scientific, and Technical Services', 'Management of Companies and Enterprises', 'Administrative and Support and Waste Management and Remediation Services', 'Educational Services', 'Health Care and Social Assistance (except Hospitals)', 'Hospitals', 'Arts, Entertainment, and Recreation; Accommodation and Food Services', 'Other Services (except Public Administration)', 'Public Administration']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>events_addition</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>event_id</td><td>float32</td><td>(1211659, 9051613)</td><td class='unique-values'># of unique values: 40554</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_type_id</td><td>int8</td><td>(11, 95)</td><td class='unique-values'># of unique values: 26</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>year_built</td><td>int16</td><td>(2021, 2038)</td><td class='unique-values'>[2021, 2023, 2022, 2029, 2025, 2026, 2027, 2028, 2024, 2030, 2033, 2031, 2032, 2034, 2035, 2037, 2036, 2038]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>res_sqft</td><td>int32</td><td>(0, 567000)</td><td class='unique-values'># of unique values: 809</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>non_residential_sqft</td><td>int32</td><td>(0, 1650000)</td><td class='unique-values'># of unique values: 826</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>parcel_id</td><td>int32</td><td>(1000056, 8388070)</td><td class='unique-values'># of unique values: 16089</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>residential_units</td><td>int16</td><td>(0, 500)</td><td class='unique-values'># of unique values: 148</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>gqcap</td><td>int32</td><td>(0, 729)</td><td class='unique-values'># of unique values: 50</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>city_id</td><td>int32</td><td>(501, 7100)</td><td class='unique-values'># of unique values: 258</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>stories</td><td>float16</td><td>(1, 43)</td><td class='unique-values'># of unique values: 29</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>dev_type</td><td>object</td><td>None</td><td class='unique-values'>['PLANNED', 'CONCEPT', 'CONVERSION', 'URBAN']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>median_hgt</td><td>int32</td><td>(10, 685)</td><td class='unique-values'># of unique values: 91</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_id</td><td>float32</td><td>(1211659, 9051613)</td><td class='unique-values'># of unique values: 40554</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>zone_id</td><td>int32</td><td>(48, 21448)</td><td class='unique-values'># of unique values: 1625</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>events_deletion</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000308, 8916579)</td><td class='unique-values'># of unique values: 5134</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>median_hgt</td><td>float16</td><td>(10, 482)</td><td class='unique-values'># of unique values: 50</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>year_built</td><td>int16</td><td>(2021, 2040)</td><td class='unique-values'>[2023, 2024, 2025, 2026, 2028, 2027, 2029, 2030, 2022, 2021, 2031, 2033, 2040]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>demolished</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 209</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>group_quarters</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>age</td><td>int16</td><td>(0, 95)</td><td class='unique-values'># of unique values: 90</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>household_id</td><td>int32</td><td>(0, 74598)</td><td class='unique-values'># of unique values: 74599</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000903, 8916068)</td><td class='unique-values'># of unique values: 2270</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>hh_id</td><td>int32</td><td>(3000000, 3006995)</td><td class='unique-values'># of unique values: 5539</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>gq_code</td><td>int16</td><td>(102, 904)</td><td class='unique-values'>[102, 103, 104, 201, 202, 203, 301, 401, 402, 403, 404, 405, 501, 502, 503, 701, 702, 801, 802, 904]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>race_id</td><td>int16</td><td>(1, 4)</td><td class='unique-values'>[1, 3, 2, 4]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>member_id</td><td>int8</td><td>(1, 1)</td><td class='unique-values'>[1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>relate</td><td>int8</td><td>(16, 17)</td><td class='unique-values'>[16, 17]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sex</td><td>int8</td><td>(1, 2)</td><td class='unique-values'>[1, 2]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>worker</td><td>int8</td><td>(-9, 1)</td><td class='unique-values'>[-9, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>industry</td><td>int8</td><td>(0, 18)</td><td class='unique-values'>[10, 3, 5, 4, 0, 16, 17, 2, 9, 13, 12, 14, 18, 6, 1, 15, 8, 11, 7]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>group_quarters_control_totals</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>year</td><td>int16</td><td>(2020, 2050)</td><td class='unique-values'># of unique values: 31</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>count</td><td>int32</td><td>(0, 15871)</td><td class='unique-values'># of unique values: 1250</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>group_quarters_households</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>persons</td><td>int8</td><td>(1, 1)</td><td class='unique-values'>[1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>cars</td><td>int8</td><td>(-9, -9)</td><td class='unique-values'>[-9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_of_head</td><td>int8</td><td>(0, 95)</td><td class='unique-values'># of unique values: 90</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>race_id</td><td>int8</td><td>(1, 4)</td><td class='unique-values'>[1, 3, 2, 4]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>workers</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>hh_id</td><td>int32</td><td>(3000000, 3006995)</td><td class='unique-values'># of unique values: 5539</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income</td><td>int32</td><td>(0, 471741)</td><td class='unique-values'># of unique values: 1289</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>children</td><td>int8</td><td>(-9, -9)</td><td class='unique-values'>[-9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>ten</td><td>int8</td><td>(-9, -9)</td><td class='unique-values'>[-9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>hht</td><td>int8</td><td>(-9, -9)</td><td class='unique-values'>[-9]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>seed_id</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 5539</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000903, 8916068)</td><td class='unique-values'># of unique values: 2270</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>households</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000002, 90000014)</td><td class='unique-values'># of unique values: 1592841</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>blkgrp</td><td>int64</td><td>(260937101002, 261639870001)</td><td class='unique-values'># of unique values: 3854</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>seed_id</td><td>int32</td><td>(0, 79061)</td><td class='unique-values'># of unique values: 63726</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>persons</td><td>int8</td><td>(1, 20)</td><td class='unique-values'>[2, 1, 6, 4, 3, 7, 5, 8, 9, 12, 11, 10, 14, 16, 15, 20, 19, 13]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>cars</td><td>int8</td><td>(0, 6)</td><td class='unique-values'>[2, 1, 0, 3, 4, 5, 6]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>age_of_head</td><td>int8</td><td>(15, 95)</td><td class='unique-values'># of unique values: 79</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>race_id</td><td>int8</td><td>(1, 4)</td><td class='unique-values'>[1, 4, 2, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>workers</td><td>int8</td><td>(0, 12)</td><td class='unique-values'>[2, 1, 0, 3, 4, 5, 6, 7, 12, 8]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>income</td><td>float64</td><td>(0, 1534132)</td><td class='unique-values'># of unique values: 15215</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>noc</td><td>int8</td><td>(0, 10)</td><td class='unique-values'>[0, 4, 1, 2, 3, 5, 6, 8, 9, 7, 10]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>ten</td><td>int8</td><td>(1, 4)</td><td class='unique-values'>[1, 2, 3, 4]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>hht</td><td>int8</td><td>(1, 7)</td><td class='unique-values'>[1, 6, 3, 5, 4, 2, 7]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>children</td><td>int8</td><td>(0, 11)</td><td class='unique-values'>[0, 4, 1, 2, 3, 5, 6, 7, 8, 9, 11, 10]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>income_growth_rates</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>3</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 25</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>5</td><td>float64</td><td>(0, 1)</td><td class='unique-values'># of unique values: 27</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>93</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 26</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>99</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 24</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>115</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 24</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>125</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>147</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 25</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>161</td><td>float64</td><td>(1, 1)</td><td class='unique-values'># of unique values: 27</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>jobs</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000002, 8916595)</td><td class='unique-values'># of unique values: 230447</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sector_id</td><td>int8</td><td>(1, 18)</td><td class='unique-values'>[3, 12, 10, 8, 4, 2, 15, 14, 5, 9, 17, 18, 16, 13, 11, 6, 7, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>home_based_status</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sqft</td><td>int16</td><td>(0, 5000)</td><td class='unique-values'>[700, 1000, 400, 250, 2000, 500, 900, 1300, 800, 100, 5000, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>semcog_id</td><td>int32</td><td>(2, 821223)</td><td class='unique-values'># of unique values: 429216</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int32</td><td>(3, 161)</td><td class='unique-values'>[5, 147, 125, 93, 99, 3, 161, 115]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>jobs_2019</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1000002, 8916595)</td><td class='unique-values'># of unique values: 232913</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sector_id</td><td>int8</td><td>(1, 18)</td><td class='unique-values'>[3, 12, 10, 8, 4, 2, 15, 14, 5, 9, 17, 18, 16, 13, 11, 6, 7, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>home_based_status</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sq_ft_per_job</td><td>int32</td><td>(0, 5000)</td><td class='unique-values'>[700, 1000, 400, 250, 2000, 500, 900, 1300, 800, 100, 5000, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>semcog_id</td><td>int32</td><td>(2, 821223)</td><td class='unique-values'># of unique values: 451115</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int32</td><td>(3, 161)</td><td class='unique-values'>[5, 147, 125, 93, 99, 3, 161, 115]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>land_use_types</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>land_use_name</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>description</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>is_residential</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>unit_name</td><td>object</td><td>None</td><td class='unique-values'>['building_sqft', 'parcel_sqft', 'residential_units']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>generic_land_use_type_id</td><td>int8</td><td>(1, 23)</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>generic_land_use_type_descripti</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>home_based_status</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>landmark_worksites</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1006875, 8916221)</td><td class='unique-values'># of unique values: 1533</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>worksite_id</td><td>float16</td><td>(1, 535)</td><td class='unique-values'># of unique values: 53</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>worksite_name</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 53</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>aka</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 141</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>businessnm</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 444</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>large_areas</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>alt_large_id</td><td>int16</td><td>(1, 8)</td><td class='unique-values'>[1, 2, 3, 4, 5, 6, 7, 8]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_group_id</td><td>int16</td><td>(1, 4)</td><td class='unique-values'>[1, 2, 3, 4]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_name</td><td>object</td><td>None</td><td class='unique-values'>['outway', 'oak', 'mac', 'was', 'mon', 'stc', 'liv', 'det']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>mcd_total</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>2020</td><td>int32</td><td>(0, 254275)</td><td class='unique-values'># of unique values: 238</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2021</td><td>int32</td><td>(0, 253566)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2022</td><td>int32</td><td>(0, 252915)</td><td class='unique-values'># of unique values: 233</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2023</td><td>int32</td><td>(0, 252342)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2024</td><td>int32</td><td>(0, 251868)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2025</td><td>int32</td><td>(0, 251513)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2026</td><td>int32</td><td>(0, 251269)</td><td class='unique-values'># of unique values: 237</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2027</td><td>int32</td><td>(0, 251087)</td><td class='unique-values'># of unique values: 238</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2028</td><td>int32</td><td>(0, 250930)</td><td class='unique-values'># of unique values: 236</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2029</td><td>int32</td><td>(0, 250760)</td><td class='unique-values'># of unique values: 236</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2030</td><td>int32</td><td>(0, 250539)</td><td class='unique-values'># of unique values: 232</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2031</td><td>int32</td><td>(0, 250174)</td><td class='unique-values'># of unique values: 233</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2032</td><td>int32</td><td>(0, 249678)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2033</td><td>int32</td><td>(0, 249173)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2034</td><td>int32</td><td>(0, 248780)</td><td class='unique-values'># of unique values: 237</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2035</td><td>int32</td><td>(0, 248622)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2036</td><td>int32</td><td>(0, 248639)</td><td class='unique-values'># of unique values: 233</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2037</td><td>int32</td><td>(0, 248685)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2038</td><td>int32</td><td>(0, 248751)</td><td class='unique-values'># of unique values: 233</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2039</td><td>int32</td><td>(0, 248829)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2040</td><td>int32</td><td>(0, 248911)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2041</td><td>int32</td><td>(0, 249000)</td><td class='unique-values'># of unique values: 232</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2042</td><td>int32</td><td>(0, 249107)</td><td class='unique-values'># of unique values: 231</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2043</td><td>int32</td><td>(0, 249237)</td><td class='unique-values'># of unique values: 233</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2044</td><td>int32</td><td>(0, 249391)</td><td class='unique-values'># of unique values: 234</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2045</td><td>int32</td><td>(0, 249574)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2046</td><td>int32</td><td>(0, 249820)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2047</td><td>int32</td><td>(0, 250153)</td><td class='unique-values'># of unique values: 236</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2048</td><td>int32</td><td>(0, 250557)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2049</td><td>int32</td><td>(0, 251017)</td><td class='unique-values'># of unique values: 237</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2050</td><td>int32</td><td>(0, 251519)</td><td class='unique-values'># of unique values: 235</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int32</td><td>(3, 161)</td><td class='unique-values'>[5, 3, 125, 99, 161, 115, 147, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>multi_parcel_buildings</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>building_id</td><td>int32</td><td>(1003256, 8916576)</td><td class='unique-values'># of unique values: 2462</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>parcel_id</td><td>int32</td><td>(1000028, 8388390)</td><td class='unique-values'># of unique values: 5105</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>parcels</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>census_bg_id</td><td>int32</td><td>(1200001, 9900000)</td><td class='unique-values'># of unique values: 3989</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>centroid_x</td><td>float64</td><td>(13179720, 13644467)</td><td class='unique-values'># of unique values: 1856171</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>centroid_y</td><td>float64</td><td>(82089, 613661)</td><td class='unique-values'># of unique values: 1856164</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>city_id</td><td>int16</td><td>(501, 7100)</td><td class='unique-values'># of unique values: 292</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>county_id</td><td>int16</td><td>(93, 163)</td><td class='unique-values'>[147, 99, 125, 163, 161, 115, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>land_use_type_id</td><td>int8</td><td>(1, 23)</td><td class='unique-values'># of unique values: 23</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int16</td><td>(3, 161)</td><td class='unique-values'>[147, 99, 125, 5, 161, 115, 93, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>parcel_sqft</td><td>int32</td><td>(4, 212523414)</td><td class='unique-values'># of unique values: 211024</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>pptytax</td><td>float64</td><td>(19, 112)</td><td class='unique-values'># of unique values: 499</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>school_id</td><td>int32</td><td>(25030, 82430)</td><td class='unique-values'># of unique values: 128</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>semmcd</td><td>int16</td><td>(5, 7100)</td><td class='unique-values'># of unique values: 238</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sev_value</td><td>int32</td><td>(0, 511536828)</td><td class='unique-values'># of unique values: 120472</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>landvalue</td><td>int32</td><td>(0, 296473380)</td><td class='unique-values'># of unique values: 193590</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>bldgimprval</td><td>int32</td><td>(0, 1021177014)</td><td class='unique-values'># of unique values: 414836</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>zone_id</td><td>int32</td><td>(1, 2811)</td><td class='unique-values'># of unique values: 2806</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>persons</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>age</td><td>int8</td><td>(0, 95)</td><td class='unique-values'># of unique values: 94</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>household_id</td><td>int32</td><td>(1, 1936894)</td><td class='unique-values'># of unique values: 1936894</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>member_id</td><td>int8</td><td>(1, 20)</td><td class='unique-values'>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>race_id</td><td>int8</td><td>(1, 4)</td><td class='unique-values'>[1, 4, 2, 3]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>relate</td><td>int8</td><td>(0, 15)</td><td class='unique-values'>[0, 1, 2, 3, 13, 7, 6, 4, 5, 12, 10, 15, 9, 8, 14]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sex</td><td>int8</td><td>(1, 2)</td><td class='unique-values'>[2, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>worker</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[1, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>industry</td><td>int8</td><td>(0, 18)</td><td class='unique-values'>[17, 5, 15, 10, 0, 2, 4, 13, 7, 16, 18, 14, 3, 12, 11, 9, 8, 6, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>poi</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>point_x</td><td>float64</td><td>(13074597, 13644493)</td><td class='unique-values'># of unique values: 4719</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>point_y</td><td>float64</td><td>(54049, 743371)</td><td class='unique-values'># of unique values: 4730</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>category</td><td>object</td><td>None</td><td class='unique-values'>['GroceryStores', 'HealthCenters', 'Libraries', 'UrgentCare', 'Hospitals', 'Park_Entrance_points']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>pseudo_building_2020</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>parcel_id</td><td>int32</td><td>(99991090, 99997085)</td><td class='unique-values'>[99991090, 99991130, 99991165, 99991220, 99992065, 99993005, 99992200, 99992295, 99994018, 99994060, 99994070, 99995075, 99997030, 99997085]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>non_residential_sqft</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>year_built</td><td>int32</td><td>(2019, 2019)</td><td class='unique-values'>[2019]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>residential_units</td><td>int32</td><td>(10, 1700)</td><td class='unique-values'>[250, 35, 50, 110, 350, 65, 125, 1700, 10, 70, 90, 375, 100]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>building_type_id</td><td>int8</td><td>(83, 83)</td><td class='unique-values'>[83]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sqft_per_unit</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>mcd</td><td>int32</td><td>(1090, 7085)</td><td class='unique-values'>[1090, 1130, 1165, 1220, 2065, 3005, 2200, 2295, 4018, 4060, 4070, 5075, 7030, 7085]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>stories</td><td>int8</td><td>(1, 1)</td><td class='unique-values'>[1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>market_value</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>land_area</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>improvement_value</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>pseudo_parcel_2020</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>census_bg_id</td><td>int8</td><td>(-1, -1)</td><td class='unique-values'>[-1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>centroid_x</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>centroid_y</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>city_id</td><td>int32</td><td>(1090, 7085)</td><td class='unique-values'>[1090, 1130, 1165, 1220, 2065, 3005, 2200, 2295, 4018, 4060, 4070, 5075, 7030, 7085]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>county_id</td><td>int32</td><td>(93, 163)</td><td class='unique-values'>[163, 125, 99, 161, 115, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>land_use_type_id</td><td>int8</td><td>(13, 13)</td><td class='unique-values'>[13]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int32</td><td>(3, 161)</td><td class='unique-values'>[3, 125, 99, 161, 115, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>parcel_sqft</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>pptytax</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>school_id</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>semmcd</td><td>int32</td><td>(1090, 7085)</td><td class='unique-values'>[1090, 1130, 1165, 1220, 2065, 3005, 2200, 2295, 4018, 4060, 4070, 5075, 7030, 7085]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>sev_value</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>landvalue</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>bldgimprval</td><td>int8</td><td>(0, 0)</td><td class='unique-values'>[0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>zone_id</td><td>int8</td><td>(-1, -1)</td><td class='unique-values'>[-1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>refiner_events</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>transaction_id</td><td>int16</td><td>(1, 179)</td><td class='unique-values'># of unique values: 167</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>agents</td><td>object</td><td>None</td><td class='unique-values'>['jobs', 'group_quarters']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>agent_expression</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 21</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>location_expression</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 195</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>amount</td><td>int16</td><td>(0, 2500)</td><td class='unique-values'># of unique values: 94</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>year</td><td>int16</td><td>(2021, 2035)</td><td class='unique-values'>[2022, 2021, 2023, 2024, 2028, 2025, 2026, 2027, 2035, 2033, 2030]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>action</td><td>object</td><td>None</td><td class='unique-values'>['add', 'subtract', 'target']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>remi_pop_total</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>2020</td><td>int32</td><td>(153348, 1258093)</td><td class='unique-values'>[1144751, 627271, 191852, 872059, 153348, 1258093, 158786, 349746]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2021</td><td>int32</td><td>(153727, 1242893)</td><td class='unique-values'>[1144880, 622719, 191080, 866016, 153727, 1242893, 158423, 345182]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2022</td><td>int32</td><td>(153855, 1243073)</td><td class='unique-values'>[1141317, 613272, 192773, 864735, 153855, 1243073, 158287, 343393]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2023</td><td>int32</td><td>(153742, 1248404)</td><td class='unique-values'>[1140194, 614940, 193969, 867508, 153742, 1248404, 157971, 347348]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2024</td><td>int32</td><td>(153780, 1255554)</td><td class='unique-values'>[1140472, 616297, 195420, 870819, 153780, 1255554, 157754, 348253]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2025</td><td>int32</td><td>(153911, 1261644)</td><td class='unique-values'>[1141267, 616226, 196914, 873254, 153911, 1261644, 157532, 349396]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2026</td><td>int32</td><td>(153905, 1273175)</td><td class='unique-values'>[1138060, 615024, 200174, 874153, 153905, 1273175, 157347, 351221]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2027</td><td>int32</td><td>(154031, 1278433)</td><td class='unique-values'>[1138556, 613763, 201811, 876686, 154031, 1278433, 157210, 352926]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2028</td><td>int32</td><td>(154255, 1284415)</td><td class='unique-values'>[1139455, 612411, 203744, 880013, 154255, 1284415, 157065, 354904]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2029</td><td>int32</td><td>(154519, 1291141)</td><td class='unique-values'>[1140904, 611252, 206283, 883923, 154519, 1291141, 157173, 357135]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2030</td><td>int32</td><td>(154854, 1297755)</td><td class='unique-values'>[1142225, 609372, 208719, 889171, 154854, 1297755, 157330, 359430]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2031</td><td>int32</td><td>(155319, 1305959)</td><td class='unique-values'>[1141951, 608998, 211156, 895357, 155319, 1305959, 157665, 361932]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2032</td><td>int32</td><td>(155848, 1314043)</td><td class='unique-values'>[1144572, 608144, 213717, 901897, 155848, 1314043, 158125, 364730]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2033</td><td>int32</td><td>(156335, 1321364)</td><td class='unique-values'>[1146535, 607238, 216166, 907893, 156335, 1321364, 158623, 367226]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2034</td><td>int32</td><td>(156771, 1328120)</td><td class='unique-values'>[1148232, 606269, 218447, 913418, 156771, 1328120, 158947, 369416]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2035</td><td>int32</td><td>(157165, 1333076)</td><td class='unique-values'>[1149533, 606658, 220669, 917944, 157165, 1333076, 159260, 371736]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2036</td><td>int32</td><td>(157531, 1335042)</td><td class='unique-values'>[1152074, 606214, 223059, 921789, 157531, 1335042, 162246, 374097]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2037</td><td>int32</td><td>(157898, 1337317)</td><td class='unique-values'>[1154556, 607128, 224927, 926244, 157898, 1337317, 162489, 376312]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2038</td><td>int32</td><td>(158179, 1340517)</td><td class='unique-values'>[1155961, 607636, 226633, 930613, 158179, 1340517, 162673, 378407]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2039</td><td>int32</td><td>(158405, 1345708)</td><td class='unique-values'>[1156402, 608100, 228217, 933282, 158405, 1345708, 162810, 380392]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2040</td><td>int32</td><td>(158597, 1348260)</td><td class='unique-values'>[1157438, 609280, 229924, 936569, 158597, 1348260, 162874, 382243]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2041</td><td>int32</td><td>(159335, 1350339)</td><td class='unique-values'>[1159885, 610009, 232146, 937801, 159335, 1350339, 162713, 384026]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2042</td><td>int32</td><td>(159830, 1352486)</td><td class='unique-values'>[1160572, 610942, 232896, 940672, 159830, 1352486, 163132, 385694]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2043</td><td>int32</td><td>(159335, 1355646)</td><td class='unique-values'>[1161064, 611396, 233959, 942895, 159335, 1355646, 163289, 387240]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2044</td><td>int32</td><td>(159087, 1358636)</td><td class='unique-values'>[1161461, 611861, 235015, 944500, 159087, 1358636, 162884, 388683]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2045</td><td>int32</td><td>(158751, 1360581)</td><td class='unique-values'>[1161062, 612681, 235838, 946458, 158751, 1360581, 162743, 389957]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2046</td><td>int32</td><td>(158889, 1362289)</td><td class='unique-values'>[1160543, 613222, 235933, 948518, 158889, 1362289, 162456, 391114]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2047</td><td>int32</td><td>(158840, 1363255)</td><td class='unique-values'>[1160530, 614495, 236407, 949262, 158840, 1363255, 162211, 392143]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2048</td><td>int32</td><td>(158785, 1364679)</td><td class='unique-values'>[1160740, 615448, 236409, 949732, 158785, 1364679, 161902, 393042]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2049</td><td>int32</td><td>(158730, 1365009)</td><td class='unique-values'>[1161033, 616795, 235712, 950732, 158730, 1365009, 161513, 393815]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2050</td><td>int32</td><td>(158665, 1365804)</td><td class='unique-values'>[1161490, 617016, 235504, 951082, 158665, 1365804, 161103, 394364]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>schools</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>dcode</td><td>int32</td><td>(4081, 82997)</td><td class='unique-values'># of unique values: 536</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>totalachievementindex</td><td>float64</td><td>(0, 100)</td><td class='unique-values'># of unique values: 1022</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>bname</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 1483</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>gradelist</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 85</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>is_grade_school</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>point_x</td><td>float64</td><td>(13202912, 13642262)</td><td class='unique-values'># of unique values: 1509</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>point_y</td><td>float64</td><td>(84750, 598100)</td><td class='unique-values'># of unique values: 1509</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>semmcds</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>county_id</td><td>int32</td><td>(93, 163)</td><td class='unique-values'>[163, 99, 125, 161, 115, 147, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int32</td><td>(3, 161)</td><td class='unique-values'>[5, 3, 99, 125, 161, 115, 147, 93]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>city_name</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 238</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>target_vacancies</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>year</td><td>int16</td><td>(2020, 2050)</td><td class='unique-values'># of unique values: 31</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>large_area_id</td><td>int16</td><td>(3, 161)</td><td class='unique-values'>[93, 99, 125, 115, 147, 161, 3, 5]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>res_target_vacancy_rate</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 242</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>non_res_target_vacancy_rate</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 248</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>target_vacancies_mcd</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>cityname</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 292</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2020</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 250</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2021</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 269</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2022</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 285</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2023</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 286</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2024</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 276</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2025</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 268</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2026</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 274</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2027</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 278</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2028</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 273</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2029</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 270</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2030</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 263</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2031</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 230</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2032</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 237</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2033</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 283</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2034</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 275</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2035</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 278</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2036</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 282</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2037</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 279</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2038</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 283</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2039</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 281</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2040</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 283</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2041</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 286</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2042</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2043</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2044</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 287</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2045</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2046</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2047</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2048</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2049</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>2050</td><td>float64</td><td>(0, 0)</td><td class='unique-values'># of unique values: 288</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>transit_stops</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>point_x</td><td>float64</td><td>(13214793, 13642546)</td><td class='unique-values'># of unique values: 12435</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>point_y</td><td>float64</td><td>(144516, 565409)</td><td class='unique-values'># of unique values: 12440</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>travel_data</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>am_auto_total_time</td><td>float32</td><td>(1, 188)</td><td class='unique-values'># of unique values: 136667</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_auto_total_time</td><td>float32</td><td>(3, 169)</td><td class='unique-values'># of unique values: 126955</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_transit_total_time</td><td>float32</td><td>(2, 9999)</td><td class='unique-values'># of unique values: 319049</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_transit_total_time</td><td>float32</td><td>(2, 9999)</td><td class='unique-values'># of unique values: 282554</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_lowinc_logsum</td><td>float32</td><td>(-14, 7)</td><td class='unique-values'># of unique values: 18816</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_midinc_logsum</td><td>float32</td><td>(-7, 8)</td><td class='unique-values'># of unique values: 13016</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_highinc_logsum</td><td>float32</td><td>(-5, 6)</td><td class='unique-values'># of unique values: 10001</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_other_logsum</td><td>float32</td><td>(-5, 2)</td><td class='unique-values'># of unique values: 4299</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>travel_data_2030</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>am_auto_total_time</td><td>float32</td><td>(3, 190)</td><td class='unique-values'># of unique values: 137936</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_auto_total_time</td><td>float32</td><td>(3, 169)</td><td class='unique-values'># of unique values: 127018</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_transit_total_time</td><td>float32</td><td>(2, 9999)</td><td class='unique-values'># of unique values: 319997</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_transit_total_time</td><td>float32</td><td>(2, 9999)</td><td class='unique-values'># of unique values: 282652</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_lowinc_logsum</td><td>float32</td><td>(-14, 7)</td><td class='unique-values'># of unique values: 18750</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_midinc_logsum</td><td>float32</td><td>(-7, 8)</td><td class='unique-values'># of unique values: 12999</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>am_work_highinc_logsum</td><td>float32</td><td>(-5, 6)</td><td class='unique-values'># of unique values: 9863</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>midday_other_logsum</td><td>float32</td><td>(-4, 2)</td><td class='unique-values'># of unique values: 4115</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>zones</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>taz</td><td>object</td><td>None</td><td class='unique-values'># of unique values: 2811</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>tazce10_n</td><td>int32</td><td>(1101, 73407)</td><td class='unique-values'># of unique values: 2811</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>acres</td><td>float64</td><td>(2, 24520)</td><td class='unique-values'># of unique values: 2811</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+<li><button class='collapsible'>zoning</button>
+<div class='content'><ul>
+<table>
+<tr><th>Column Name</th><th>Data Type</th><th>Data Range</th><th>Unique Values</th><th>Description</th></tr>
+<tr><td>future_use</td><td>object</td><td>None</td><td class='unique-values'>['OFFICE', 'RESIDENTIAL', 'PARK AND OPEN SPACE', 'COMMERCIAL', 'TCU', 'INDUSTRIAL', 'MIXED USE', 'INSTITUTIONAL', 'WATER', 'GOLF COURSE', 'CEMETERY', 'AGRICULTURAL', 'EXTRACTIVE']</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>max_dua</td><td>float64</td><td>(0, 404)</td><td class='unique-values'># of unique values: 1958</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>max_far</td><td>float64</td><td>(0, 13)</td><td class='unique-values'># of unique values: 210</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>pct_undev</td><td>float64</td><td>(0, 100)</td><td class='unique-values'># of unique values: 101</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>max_height</td><td>int16</td><td>(12, 876)</td><td class='unique-values'># of unique values: 36</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>max_stories</td><td>float16</td><td>(1, 73)</td><td class='unique-values'># of unique values: 36</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>is_developable</td><td>int8</td><td>(0, 2)</td><td class='unique-values'>[1, 0, 2]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type11</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type13</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type14</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type21</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type23</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[1, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type31</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type32</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type33</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type41</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type42</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type51</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[1, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type52</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type53</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type61</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type63</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type65</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type71</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type81</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type82</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type83</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type84</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type91</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type92</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type93</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type94</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[0, 1]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td>type95</td><td>int8</td><td>(0, 1)</td><td class='unique-values'>[1, 0]</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+</table>
+</div></li>
+</ul>
+
+        </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </body>
+    </html>
+    
